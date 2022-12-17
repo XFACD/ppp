@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ppp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ppp
+  template:
+    metadata:
+      labels:
+        app: ppp
+    spec:
+      containers:
+      - image: okteto.dev/ppp:latest
+        name: ppp
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "b7efb034-98b1-40b7-9bc7-3fe1f3ecee30"
+        - name: Vless_Path
+          value: "/ftyujr5465htetrg"
+        - name: Vmess_UUID
+          value: "b7efb034-98b1-40b7-9bc7-3fe1f3ecee30"
+        - name: Vmess_Path
+          value: "/nmjhgf3456usfdghry"
+        - name: Share_Path
+          value: "/v2link"
